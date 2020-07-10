@@ -1,14 +1,17 @@
 import unittest
 from cityreader import City, cityreader, cityreader_stretch
 
+
 def check_city(inp, exp):
-    if inp.name != exp.name:
-      return False
-    if inp.lat != exp.lat:
-      return False
-    if inp.lon != exp.lon:
-      return False
-    return True
+  if inp.name != exp.name:
+    print('line 6')
+    return False
+  if float(inp.lat) != float(exp.lat):
+    return False
+  if float(inp.lon) != float(exp.lon):
+    print('line 12')
+    return False
+  return True
 
 class CityreaderTests(unittest.TestCase):
   def setUp(self):
@@ -38,8 +41,8 @@ class CityreaderTests(unittest.TestCase):
 
     self.assertEqual(len(inp), len(expected))
 
-    # for i in range(len(inp)):
-    #   self.assertTrue(check_city(inp[i], expected[i]))
+    for i in range(len(inp)):
+      self.assertTrue(check_city(inp[i], expected[i]))
 
     expected = [
       City("Richmond", 37.5294,-77.4755),
@@ -82,8 +85,8 @@ class CityreaderTests(unittest.TestCase):
 
     inp = cityreader_stretch(40, -50, 12, -120, self.cities)
 
-    # for i in range(len(inp)):
-    #   self.assertTrue(check_city(inp[i], expected[i]))
+    for i in range(len(inp)):
+      self.assertTrue(check_city(inp[i], expected[i]))
 
 
 if __name__ == '__main__':

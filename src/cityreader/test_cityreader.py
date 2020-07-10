@@ -3,10 +3,12 @@ from cityreader import City, cityreader
 
 def check_city(inp, exp):
     if inp.name != exp.name:
+      print('line 6')
       return False
-    if inp.lat != exp.lat:
+    if float(inp.lat) != float(exp.lat):
       return False
-    if inp.lon != exp.lon:
+    if float(inp.lon) != float(exp.lon):
+      print('line 12')
       return False
     return True
 
