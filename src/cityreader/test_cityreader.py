@@ -79,6 +79,8 @@ class CityreaderTests(unittest.TestCase):
   def test_cityreader_correctness(self):
     self.assertEqual(len(self.cities), 60)
     for i in range(len(self.cities)):
+      #is failing because the pointers are different, don't think it matters but check with Ben
+      # print(self.cities[i], self.expected[i])
       self.assertTrue(check_city(self.cities[i], self.expected[i]))
 
 
