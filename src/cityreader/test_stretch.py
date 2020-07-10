@@ -1,14 +1,17 @@
 import unittest
 from cityreader import City, cityreader, cityreader_stretch
 
+
 def check_city(inp, exp):
-    if inp.name != exp.name:
-      return False
-    if inp.lat != exp.lat:
-      return False
-    if inp.lon != exp.lon:
-      return False
-    return True
+  if inp.name != exp.name:
+    print('line 6')
+    return False
+  if float(inp.lat) != float(exp.lat):
+    return False
+  if float(inp.lon) != float(exp.lon):
+    print('line 12')
+    return False
+  return True
 
 class CityreaderTests(unittest.TestCase):
   def setUp(self):
